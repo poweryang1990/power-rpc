@@ -1,0 +1,8 @@
+server:
+  port: 9091
+spring:
+  application:
+      name: rpc-sample-client
+rpc:
+  host: 127.0.0.1
+  port: 9000

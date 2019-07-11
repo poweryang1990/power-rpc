@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 热加载 -->
+<included>
+    <!-- 4.2 测试环境:文件-->
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</included>
