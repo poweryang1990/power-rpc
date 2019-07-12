@@ -62,7 +62,6 @@ public class TcpRpcServerHandler extends RpcServerHandler {
         String methodName = request.getMethodName();
         log.info(methodName);
         Class<?>[] parameterTypes = request.getParameterTypes();
-        log.info(parameterTypes[0].getName());
         Object[] parameters = request.getParameters();
         // 执行反射调用
         Method method = serviceClass.getMethod(methodName, parameterTypes);

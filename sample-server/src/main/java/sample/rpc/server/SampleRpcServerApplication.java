@@ -13,7 +13,7 @@ import power.rpc.server.annotation.EnableRpcServer;
  */
 @SpringBootApplication
 //指定要扫描的包
-@ComponentScan({"**rpc.*"})
+@ComponentScan({"**.rpc.*","rpc.*"})
 @EnableRpcServer
 @Slf4j
 public class SampleRpcServerApplication {

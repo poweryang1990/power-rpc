@@ -27,7 +27,7 @@ public class RpcMessageEncoder  extends MessageToByteEncoder<RpcMessage> {
 
     @Override
     protected void encode(ChannelHandlerContext channelHandlerContext, RpcMessage rpcMessage, ByteBuf byteBuf) throws Exception {
-        byte[] messageBody=serializer.serialize(rpcMessage);
+        byte[] messageBody=serializer.serialize(rpcMessage.getMessageBody());
         byteBuf.writeBoolean(rpcMessage.isRequest())
                 .writeLong(rpcMessage.getInvokeId())
                 .writeInt(messageBody.length)

@@ -90,13 +90,10 @@ public class RpcClientsRegistrar  implements ImportBeanDefinitionRegistrar, Reso
         String className = annotationMetadata.getClassName();
         BeanDefinitionBuilder definition = BeanDefinitionBuilder.genericBeanDefinition(RpcProxyFactoryBean.class);
 
-        definition.addPropertyValue("interfaceClassName", className);
+        definition.addPropertyValue("clazz", className);
 
         definition.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
         AbstractBeanDefinition beanDefinition = definition.getBeanDefinition();
-
-//        BeanDefinitionHolder holder = new BeanDefinitionHolder(beanDefinition, className, null);
-//        BeanDefinitionReaderUtils.registerBeanDefinition(holder, registry);
 
         BeanDefinitionReaderUtils.registerWithGeneratedName(beanDefinition, registry);
 

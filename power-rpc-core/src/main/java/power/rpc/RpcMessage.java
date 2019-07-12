@@ -26,7 +26,6 @@ public class RpcMessage {
     private static final AtomicLong invokeIdGnerator=new AtomicLong(0L);
     /**
      * 每一个请求的唯一识别id（由于采用异步通讯的方式，用来把请求request和返回的response对应上）
-     * Demo中采用这类算法，实际生产中 用雪花算法代替
      */
     private long invokeId=invokeIdGnerator.getAndIncrement();
 

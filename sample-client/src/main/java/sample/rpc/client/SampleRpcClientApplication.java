@@ -10,7 +10,7 @@ import power.rpc.client.annotation.EnableRpcClients;
  * @Date: 2019/7/10 15:11
  */
 @SpringBootApplication
-@ComponentScan({"**rpc.**"})
+@ComponentScan({"**.rpc.**","rpc.**"})
 @EnableRpcClients({"rpc.sample.api"})
 public class SampleRpcClientApplication {
     public static void main(String[] args)  {

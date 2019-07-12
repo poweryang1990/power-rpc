@@ -34,13 +34,14 @@ public class RpcMessageDecoder extends ByteToMessageDecoder {
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
         //获取消息内容长度
+        boolean isRequest=byteBuf.readBoolean();
+        long invokeId=byteBuf.readLong();
         int bodyLength = byteBuf.readInt();
         checkBodyLength(bodyLength);
 
         byte[] bytes=new byte[bodyLength];
         byteBuf.readBytes(bytes);
-        boolean isRequest=byteBuf.readBoolean();
-        long invokeId=byteBuf.readLong();
+
         Class messageBodyClass=isRequest? RpcRequest.class:RpcResponse.class;
         MessageBody messageBody=(MessageBody)serializer.deserialize(bytes,messageBodyClass);
         RpcMessage rpcMessage=new RpcMessage();
